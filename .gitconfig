@@ -1,1 +1,7 @@
-/home/rowan/.dotfiles/home_files/.gitconfig
+[user]
+	email = rowansolly32@gmail.com
+	name = Rowan Solly
+[init]
+	defaultBranch = main
+[push]
+	autoSetupRemote = true
