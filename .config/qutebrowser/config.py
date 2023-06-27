@@ -3,9 +3,13 @@ c.auto_save.session = True
 c.completion.shrink = True
 c.confirm_quit = ["downloads"]
 c.content.cache.size = 5242880
-c.downloads.location.directory = "~/tmp"
-# c.downloads.location.prompt = False
+c.content.pdfjs = True
+c.content.blocking.method = "both"
+c.content.blocking.whitelist = ['www.googleadservices.com']
+c.downloads.location.directory = "~/Downloads"
+c.downloads.location.prompt = True
 c.downloads.location.remember = True
+c.downloads.remove_finished = 0 #milliseconds
 c.hints.scatter = False
 c.hints.uppercase = True
 c.input.partial_timeout = 2000
@@ -18,8 +22,7 @@ c.new_instance_open_target = "tab"
 # lazy_restore does not work when idle.
 c.session.lazy_restore = True
 
-c.content.blocking.method = "both"
-
+c.content.notifications.enabled = True
 
 config.bind('ye', ':spawn emacsclient --eval "(kill-new \\"{url}\\")"', mode='normal')
 config.bind(',r', ':spawn emacsclient --eval "(github-pull-readme \\"{url}\\")"', mode='normal')
@@ -86,8 +89,5 @@ c.url.searchengines = {
 
 
 c.editor.command = ['emacsclient', "--eval", "(progn (find-file-other-window \"{file}\") (markdown-mode))" ]
-
-c.content.notifications.enabled = True
-c.content.blocking.whitelist = ['www.googleadservices.com']
 
 config.load_autoconfig(True)
