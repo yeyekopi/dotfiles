@@ -1,10 +1,20 @@
 ;; -*- lexical-binding: t; -*-
 
 
-(setq package-enable-at-startup nil)
-
 ;; The default is 800 kilobytes.  Measured in bytes.
 (setq gc-cons-threshold (* 50 1000 1000))
+
+(setq package-enable-at-startup nil)
+(setq auto-save-default nil)
+(setq make-backup-files nil)
+(setq user-emacs-directory "~/.emacs")
+
+(defun commit-push ()
+    (interactive)
+    (shell-command "git commit -a --allow-empty-message -m '' && git push"))
+(global-set-key (kbd "C-x p") 'commit-push)
+
+(add-hook 'after-init-hook #'server-start)
 
 (defun efs/display-startup-time ()
   (message "Emacs loaded in %s with %d garbage collections."
@@ -14,7 +24,6 @@
            gcs-done))
 
 (add-hook 'emacs-startup-hook #'efs/display-startup-time)
-(add-hook 'after-init-hook #'server-start)
 
 (defvar bootstrap-version)
 (let ((bootstrap-file
@@ -41,10 +50,6 @@
         ("melpa-stable" . "https://stable.melpa.org/packages/")
         ("org" . "https://orgmode.org/elpa/")
         ("elpa" . "https://elpa.gnu.org/packages/")))
-
-(setq auto-save-default nil)
-(setq make-backup-files nil)
-(setq user-emacs-directory "~/.emacs ")
 
 (use-package emacs
   :config
