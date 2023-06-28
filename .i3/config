@@ -43,11 +43,11 @@ bindsym $mod+d exec --no-startup-id dmenu_recency
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
 ################################################################################################
 
-exec --no-startup-id volumeicon
-bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
-#exec --no-startup-id pulseaudio
-#exec --no-startup-id pa-applet
-#bindsym $mod+Ctrl+m exec pavucontrol
+#exec --no-startup-id volumeicon
+#bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
+exec --no-startup-id start-pulseaudio-x11
+exec --no-startup-id pa-applet
+bindsym $mod+Ctrl+m exec pavucontrol
 
 ################################################################################################
 
@@ -287,7 +287,8 @@ exec --no-startup-id start_conky_maia
 exec --no-startup-id xautolock -time 10 -locker blurlock
 
 exec redshift-gtk
-exec --no-startup-id xrandr --output HDMI-1 --left-of DVI-D-1 --auto
+# exec --no-startup-id xrandr --output HDMI-1 --left-of DVI-D-1 #old
+exec --no-startup-id xrandr --output DP-1 --left-of DVI-D-1 #office
 
 exec_always --no-startup-id setxkbmap -layout us -option caps:swapescape
 exec_always --no-startup-id xset r rate 120 250
@@ -296,22 +297,32 @@ exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 
 exec --no-startup-id /opt/sharexclone/sharexyz_setup_launcher.sh
-exec --no-startup-id ~/opt/manictime/manictime
+# exec --no-startup-id ~/opt/manictime/manictime
 # exec --no-startup-id /opt/jetbrains-toolbox-1.27.3.14493/jetbrains-toolbox
+
+# no_focus all
 
 workspace 1 output DVI-D-1
 workspace 2 output DVI-D-1
 workspace 3 output DVI-D-1
-workspace 8 output DVI-D-1
-workspace 4 output HDMI-1
+workspace 4 output DVI-D-1
+workspace 5 output DVI-D-1
+workspace 6 output DVI-D-1
+workspace 7 output HDMI-1
+workspace 8 output HDMI-1
 
 assign [class="^qutebrowser$"] 3
+assign [class="^jetbrains-rider$"] 4
+assign [class="^unityhub$"] 5
+assign [class="^Unity$"] 5
 assign [class="^Slack$"] 8
 
-exec --no-startup-id i3-msg "workspace 1; exec emacs"
-exec --no-startup-id i3-msg "workspace 2; exec emacs"
-
+exec --no-startup-id i3-msg "workspace 1; exec emacs" #terminal, file manager, chatgpt
+exec --no-startup-id i3-msg "workspace 2; exec emacs" #editor
 exec --no-startup-id qutebrowser
+exec --no-startup-id rider
+exec --no-startup-id unityhub
+exec --no-startup-id ~/scripts/run-unity
 exec --no-startup-id slack
 
 # Color palette used for the terminal ( ~/.Xresources file )
