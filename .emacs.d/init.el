@@ -9,10 +9,13 @@
 (setq make-backup-files nil)
 (setq user-emacs-directory "~/.emacs")
 
-(defun commit-push ()
+(defun stage-commit-push ()
     (interactive)
-    (shell-command "git commit -a --allow-empty-message -m '' && git push"))
-(global-set-key (kbd "C-x p") 'commit-push)
+    (shell-command "git add -A && git commit --allow-empty-message -m '' && git push"))
+(global-set-key (kbd "C-x p") 'stage-commit-push)
+
+;; discard changes hotkey
+(global-set-key (kbd "C-x r") (lambda () (interactive) (revert-buffer nil t)))
 
 (add-hook 'after-init-hook #'server-start)
 
