@@ -317,8 +317,7 @@ assign [class="^unityhub$"] 5
 assign [class="^Unity$"] 5
 assign [class="^Slack$"] 8
 
-exec --no-startup-id i3-msg "workspace 1; exec emacs" #terminal, file manager, chatgpt
-exec --no-startup-id i3-msg "workspace 2; exec emacs" #editor
+exec --no-startup-id i3-msg "workspace 1; exec emacs"
 exec --no-startup-id qutebrowser
 exec --no-startup-id rider
 exec --no-startup-id unityhub
