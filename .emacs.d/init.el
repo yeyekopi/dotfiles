@@ -5,18 +5,7 @@
 (setq gc-cons-threshold (* 50 1000 1000))
 
 (setq package-enable-at-startup nil)
-(setq auto-save-default nil)
-(setq make-backup-files nil)
 (setq user-emacs-directory "~/.emacs")
-
-(defun stage-commit-push ()
-    (interactive)
-    (shell-command "git add -A && git commit --allow-empty-message -m '' && git push"))
-(global-set-key (kbd "C-x p") 'stage-commit-push)
-
-;; discard changes hotkey
-(global-set-key (kbd "C-x r") (lambda () (interactive) (revert-buffer nil t)))
-
 (add-hook 'after-init-hook #'server-start)
 
 (defun efs/display-startup-time ()
@@ -113,6 +102,17 @@
   (global-so-long-mode 1)
   (setq async-shell-command-buffer 'new-buffer)
 
+  (setq auto-save-default nil)
+  (setq make-backup-files nil)
+  (setq org-archive-location "~/repos/notes/done.org::")
+  (setq org-startup-truncated nil)
+  (defun stage-commit-push ()
+    (interactive)
+    (shell-command "git add -A && git commit --allow-empty-message -m '' && git push"))
+  (global-set-key (kbd "C-x p") 'stage-commit-push)
+  ;; discard changes hotkey
+  (global-set-key (kbd "C-x r") (lambda () (interactive) (revert-buffer nil t)))
+
   (defun path-slug (dir)
     "Returns the initials of `dir`s path,
 with the last part appended fully
@@ -165,8 +165,9 @@ Example:
    evil-want-keybinding nil
    evil-move-cursor-back nil
    evil-move-beyond-eol t
-   evil-want-fine-undo t
-   evil-want-C-i-jump t)
+   evil-want-fine-undo nil
+   evil-want-C-i-jump t
+   evil-shift-width 2)
 
   :config
   (evil-mode 1)
