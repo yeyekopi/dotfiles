@@ -1,0 +1,3 @@
+#!/bin/sh
+
+$HOME/Unity/Hub/Editor/2022.3.12f1/Editor/Unity -projectPath ~/repos/hybrid-tcg/HybridTCG
