@@ -105,6 +105,7 @@
   (setq auto-save-default nil)
   (setq make-backup-files nil)
   (setq org-archive-location "~/repos/notes/done.org::")
+  (setq org-archive-save-context-info nil)
   (setq org-startup-truncated nil)
   (defun stage-commit-push ()
     (interactive)
