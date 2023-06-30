@@ -158,6 +158,11 @@ Example:
 
   :bind ("<f5>" . modus-themes-toggle))
 
+(use-package undo-tree
+  :ensure t
+  :config
+    (global-undo-tree-mode))
+
 (use-package evil
   :init
   (setq
@@ -173,12 +178,12 @@ Example:
   (evil-mode 1)
   (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
   (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-word)
-  (define-key evil-normal-state-map (kbd "U") 'undo)
+  (define-key evil-normal-state-map (kbd "U") 'evil-redo)
   ;; (evil-set-leader nil (kbd "SPC"))
   ;; (define-key evil-motion-state-map (kbd "SPC w") (lookup-key evil-motion-state-map (kbd "C-w")))
   (evil-set-initial-state 'messages-buffer-mode 'normal)
   (evil-set-initial-state 'dashboard-mode 'normal)
-  (evil-set-undo-system 'undo-redo)
+  (evil-set-undo-system 'undo-tree)
 
   (defadvice evil-show-registers
       (after mm/evil-show-registers-adv activate)
@@ -363,6 +368,9 @@ Example:
   :ensure t
   :config
   (global-diff-hl-mode))
+
+(use-package git-timemachine
+  :ensure t)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
