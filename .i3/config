@@ -370,6 +370,9 @@ bar {
 #   font xft:URWGothic-Book 11
 	strip_workspace_numbers yes
 
+	mode hide
+	hidden_state hide
+
     colors {
         background #222D31
         statusline #F9FAF9
