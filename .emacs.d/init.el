@@ -113,16 +113,9 @@
   (global-set-key (kbd "C-c p") 'stage-commit-push)
   ;; discard changes hotkey
   (global-set-key (kbd "C-c r") (lambda () (interactive) (revert-buffer nil t)))
-  (setq original-y-or-n-p 'y-or-n-p)
-
-  (defalias 'original-y-or-n-p (symbol-function 'y-or-n-p))
-  (defun default-yes-sometimes (prompt)
-    (if (or
-	(string-match "has a running process" prompt))
-	t
-      (original-y-or-n-p prompt)))
-  (defalias 'yes-or-no-p 'default-yes-sometimes)
-  (defalias 'y-or-n-p 'default-yes-sometimes)
+  (setq kill-buffer-query-functions
+    (remq 'process-kill-buffer-query-function
+	  kill-buffer-query-functions))
 
   (defun path-slug (dir)
     "Returns the initials of `dir`s path,
@@ -391,7 +384,9 @@ Example:
   (setq multi-term-dedicated-select-after-open-p t)
   (global-set-key (kbd "C-c t") (lambda ()
 				  (interactive)
-				  (kill-buffer (format "*%s*" multi-term-dedicated-buffer-name))
+				  (condition-case nil
+				      (kill-buffer (format "*%s*" multi-term-dedicated-buffer-name))
+				    (error nil))
 				  (multi-term-dedicated-open)))
   (global-set-key (kbd "C-c T") 'multi-term-dedicated-close))
 
