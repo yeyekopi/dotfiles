@@ -110,9 +110,9 @@
   (defun stage-commit-push ()
     (interactive)
     (shell-command "git add -A && git commit --allow-empty-message -m '' && git push"))
-  (global-set-key (kbd "C-x p") 'stage-commit-push)
+  (global-set-key (kbd "C-c p") 'stage-commit-push)
   ;; discard changes hotkey
-  (global-set-key (kbd "C-x r") (lambda () (interactive) (revert-buffer nil t)))
+  (global-set-key (kbd "C-c r") (lambda () (interactive) (revert-buffer nil t)))
 
   (defun path-slug (dir)
     "Returns the initials of `dir`s path,
@@ -373,6 +373,15 @@ Example:
 
 (use-package git-timemachine
   :ensure t)
+
+(use-package multi-term
+  :ensure t
+  :config
+  (setq multi-term-program "/bin/bash")
+  (setq multi-term-dedicated-select-after-open-p t)
+  (setq multi-term-dedicated-close-back-to-open-buffer-p nil)
+  (global-set-key (kbd "C-c t") 'multi-term-dedicated-open)
+  (global-set-key (kbd "C-c T") 'multi-term-dedicated-close))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

@@ -17,3 +17,4 @@ export PYSTRAY_BACKEND=gtk
 
 # Added by Toolbox App
 export PATH="$PATH:/home/rowan/.local/share/JetBrains/Toolbox/scripts"
+export PATH="$PATH:/home/rowan/opt/JetBrains Rider-2021.3.4/bin"
