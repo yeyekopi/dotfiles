@@ -1,5 +1,6 @@
 # ambrevar
 c.auto_save.session = True
+c.session.default_name = "default"
 c.completion.shrink = True
 c.confirm_quit = ["downloads"]
 c.content.cache.size = 5242880

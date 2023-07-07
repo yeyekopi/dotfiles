@@ -7,6 +7,10 @@
 (setq package-enable-at-startup nil)
 (setq user-emacs-directory "~/.emacs")
 (add-hook 'after-init-hook #'server-start)
+(add-hook 'window-setup-hook #'(lambda ()
+				 (interactive)
+				 (evil-window-vsplit)
+				 (find-file "~/repos/notes/todo.org")))
 
 (defun efs/display-startup-time ()
   (message "Emacs loaded in %s with %d garbage collections."
