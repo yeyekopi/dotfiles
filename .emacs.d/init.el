@@ -108,9 +108,10 @@
 
   (setq auto-save-default nil)
   (setq make-backup-files nil)
-  (setq org-archive-location "~/repos/notes/done.org::")
+  (setq org-archive-location "./done.org::")
   (setq org-archive-save-context-info nil)
   (setq org-startup-truncated nil)
+  (setq org-auto-align-tags nil)
   (defun stage-commit-push ()
     (interactive)
     (shell-command "git add -A && git commit --allow-empty-message -m '' && git push"))
@@ -205,6 +206,12 @@ Example:
   (setf evil-collection-mode-list
 	(remove 'lispy evil-collection-mode-list))
   (evil-collection-init))
+
+(use-package evil-mc
+  :after evil
+  :ensure t
+  :config
+  (global-evil-mc-mode 1))
 
 (use-package mood-line
   :straight (:host github :repo "benjamin-asdf/mood-line")

@@ -308,8 +308,8 @@ workspace 3 output DVI-D-1
 workspace 4 output DVI-D-1
 workspace 5 output DVI-D-1
 workspace 6 output DVI-D-1
-workspace 7 output HDMI-1
-workspace 8 output HDMI-1
+workspace 7 output HDMI-0
+workspace 8 output HDMI-0
 
 assign [class="^qutebrowser$"] 3
 assign [class="^jetbrains-rider$"] 4
