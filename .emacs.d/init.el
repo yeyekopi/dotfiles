@@ -236,6 +236,12 @@ Example:
    completion-category-overrides '((file (styles partial-completion)))))
 
 (require 'dired)
+(use-package dired-du
+  :after dired
+  :ensure t
+  :config
+  (setq dired-du-mode t)
+  (setq dired-du-size-format t)) ;; human readable
 
 ;; https://github.com/Gavinok/emacs.d
 (use-package consult

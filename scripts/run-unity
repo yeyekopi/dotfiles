@@ -1,3 +1,3 @@
 #!/bin/sh
 
-$HOME/Unity/Hub/Editor/2022.3.12f1/Editor/Unity -projectPath ~/repos/hybrid-tcg/HybridTCG
+$HOME/Unity/Hub/Editor/2022.3.4f1/Editor/Unity -projectPath ~/repos/hybrid-tcg/HybridTCG -username koray.anil.akman@gmail.com -password Test12345
