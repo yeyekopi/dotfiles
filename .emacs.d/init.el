@@ -121,6 +121,12 @@
   (setq kill-buffer-query-functions
     (remq 'process-kill-buffer-query-function
 	  kill-buffer-query-functions))
+  (global-set-key (kbd "C-c t") (lambda ()
+				  (interactive)
+				  (condition-case nil
+				      (kill-buffer "term")
+				    (error nil))
+				  (term "/bin/bash")))
 
   (defun path-slug (dir)
     "Returns the initials of `dir`s path,
@@ -391,21 +397,24 @@ Example:
   :config
   (global-diff-hl-mode))
 
-(use-package git-timemachine
-  :ensure t)
+;; (use-package git-timemachine
+;;   :ensure t)
 
-(use-package multi-term
-  :ensure t
-  :config
-  (setq multi-term-program "/bin/bash")
-  (setq multi-term-dedicated-select-after-open-p t)
-  (global-set-key (kbd "C-c t") (lambda ()
-				  (interactive)
-				  (condition-case nil
-				      (kill-buffer (format "*%s*" multi-term-dedicated-buffer-name))
-				    (error nil))
-				  (multi-term-dedicated-open)))
-  (global-set-key (kbd "C-c T") 'multi-term-dedicated-close))
+;; (use-package multi-term
+;;   :ensure t
+;;   :config
+;;   (setq multi-term-program "/bin/bash")
+;;   (setq multi-term-dedicated-select-after-open-p t)
+;;   (global-set-key (kbd "C-c t") (lambda ()
+;; 				  (interactive)
+;; 				  (condition-case nil
+;; 				      (kill-buffer (format "*%s*" multi-term-dedicated-buffer-name))
+;; 				    (error nil))
+;; 				  (multi-term-dedicated-open)))
+;;   (global-set-key (kbd "C-c T") 'multi-term-dedicated-close))
+
+;; (use-package winner-mode
+;;   :ensure t)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
