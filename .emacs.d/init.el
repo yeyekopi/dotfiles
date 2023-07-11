@@ -124,7 +124,7 @@
   (global-set-key (kbd "C-c t") (lambda ()
 				  (interactive)
 				  (condition-case nil
-				      (kill-buffer "term")
+				      (kill-buffer "*terminal*")
 				    (error nil))
 				  (term "/bin/bash")))
 
