@@ -195,6 +195,7 @@ Example:
   (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
   (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-word)
   (define-key evil-normal-state-map (kbd "U") 'evil-redo)
+  ;; (define-key evil-motion-state-map (kbd "w") 'right-word)
   ;; (evil-set-leader nil (kbd "SPC"))
   ;; (define-key evil-motion-state-map (kbd "SPC w") (lookup-key evil-motion-state-map (kbd "C-w")))
   (evil-set-initial-state 'messages-buffer-mode 'normal)
@@ -246,8 +247,9 @@ Example:
   :after dired
   :ensure t
   :config
-  (setq dired-du-mode t)
-  (setq dired-du-size-format t)) ;; human readable
+  (setq dired-du-size-format t)
+  (dired-du--toggle-human-readable)
+  (add-hook 'dired-mode-hook #'dired-du-mode))
 
 ;; https://github.com/Gavinok/emacs.d
 (use-package consult
