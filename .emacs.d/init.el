@@ -248,8 +248,8 @@ Example:
   :ensure t
   :config
   (setq dired-du-size-format t)
-  (dired-du--toggle-human-readable)
-  (add-hook 'dired-mode-hook #'dired-du-mode))
+  ;; (define-key dired-mode-map (kbd "C d") 'dired-du-mode)
+  (dired-du--toggle-human-readable))
 
 ;; https://github.com/Gavinok/emacs.d
 (use-package consult
