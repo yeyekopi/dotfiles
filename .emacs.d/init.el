@@ -247,6 +247,7 @@ Example:
   :after dired
   :ensure t
   :config
+  (setq dired-listing-switches "-alt")
   (setq dired-du-size-format t)
   ;; (define-key dired-mode-map (kbd "C d") 'dired-du-mode)
   (dired-du--toggle-human-readable))

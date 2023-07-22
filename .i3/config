@@ -296,7 +296,7 @@ exec_always --no-startup-id xset r rate 120 250
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 
-exec --no-startup-id /opt/sharexclone/sharexyz_setup_launcher.sh
+exec --no-startup-id /opt/sharexclone/sharexyz.sh
 # exec --no-startup-id ~/opt/manictime/manictime
 # exec --no-startup-id /opt/jetbrains-toolbox-1.27.3.14493/jetbrains-toolbox
 

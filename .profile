@@ -13,6 +13,7 @@ export AWS_SECRET_ACCESS_KEY=`pass aws/secret-access-key`
 export REGION_NAME=eu-central-1
 
 export PYSTRAY_BACKEND=gtk
+export GTK_THEME=Adwaita:dark
 
 
 # Added by Toolbox App
