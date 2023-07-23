@@ -249,7 +249,8 @@ Example:
   :config
   (setq dired-listing-switches "-alt")
   (setq dired-du-size-format t)
-  ;; (define-key dired-mode-map (kbd "C d") 'dired-du-mode)
+  ;; (define-key dired-mode-map (kbd "C-c d") 'dired-du-mode)
+  (define-key dired-mode-map (kbd "C-c r") 'dired-du-recompute-dir-size)
   (dired-du--toggle-human-readable))
 
 ;; https://github.com/Gavinok/emacs.d

@@ -16,7 +16,7 @@ c.hints.uppercase = True
 c.input.partial_timeout = 2000
 c.tabs.tabs_are_windows = False
 c.new_instance_open_target = "tab"
-# c.colors.webpage.preferred_color_scheme = "light"
+c.colors.webpage.preferred_color_scheme = "dark"
 
 # c.window.title_format = "{title}{title_sep}{host}"
 
