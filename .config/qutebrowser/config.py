@@ -7,6 +7,7 @@ c.content.cache.size = 5242880
 c.content.pdfjs = True
 c.content.blocking.method = "both"
 c.content.blocking.whitelist = ['www.googleadservices.com']
+c.content.site_specific_quirks.enabled = True
 c.downloads.location.directory = "~/Downloads"
 c.downloads.location.prompt = True
 c.downloads.location.remember = True
@@ -17,6 +18,7 @@ c.input.partial_timeout = 2000
 c.tabs.tabs_are_windows = False
 c.new_instance_open_target = "tab"
 c.colors.webpage.preferred_color_scheme = "dark"
+c.qt.args = ["disable-accelerated-2d-canvas"]
 
 # c.window.title_format = "{title}{title_sep}{host}"
 
