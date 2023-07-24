@@ -138,21 +138,21 @@ ex ()
 
 [[ -f ~/.profile ]] && . ~/.profile
 
-alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-alias gs='/usr/bin/git status'
-alias gd='/usr/bin/git diff'
-alias gl='/usr/bin/git log'
-alias gsh='/usr/bin/git show'
-alias ga='/usr/bin/git add'
-alias gaa='/usr/bin/git add -A'
-alias gcm='/usr/bin/git commit -m'
-alias gcam='/usr/bin/git commit -a -m'
-alias gco='/usr/bin/git checkout'
-alias grh='/usr/bin/git reset --hard'
-alias gcl='/usr/bin/git clean -fd'
-alias ggc='/usr/bin/git gc --prune=now'
-alias gpl='/usr/bin/git pull'
-alias gps='/usr/bin/git push'
+alias config='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias gs='git status'
+alias gd='git diff'
+alias gl='git log'
+alias gsh='git show'
+alias ga='git add'
+alias gaa='git add -A'
+alias gcm='git commit -m'
+alias gcam='git commit -a -m'
+alias gco='git checkout'
+alias grh='git reset --hard'
+alias gcl='git clean -fd'
+alias ggc='git gc --prune=now'
+alias gpl='git pull'
+alias gps='git push'
 
 # Install Ruby Gems to ~/gems
 export GEM_HOME="$HOME/gems"

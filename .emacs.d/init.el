@@ -127,6 +127,7 @@
 				      (kill-buffer "*terminal*")
 				    (error nil))
 				  (term "/bin/bash")))
+  (file-name-shadow-mode 1)
 
   (defun path-slug (dir)
     "Returns the initials of `dir`s path,
@@ -231,7 +232,9 @@ Example:
   (vertico-mode)
   (setq vertico-scroll-margin 0)
   (setq vertico-count 20)
-  (setq vertico-cycle t))
+  (setq vertico-cycle t)
+  :config
+  (add-hook 'rfn-eshadow-update-overlay-hook #'vertico-directory-tidy))
 
 (use-package savehist :init (savehist-mode))
 
@@ -248,7 +251,12 @@ Example:
   :ensure t
   :config
   (setq dired-listing-switches "-alt")
+  (setq dired-dwim-target t)
   (setq dired-du-size-format t)
+  (setq dired-guess-shell-alist-user
+    '(("\\.\\(png\\|jpe?g\\|tiff\\)" "feh" "xdg-open")
+      ("\\.\\(mp[34]\\|m4a\\|ogg\\|flac\\|webm\\|mkv\\)" "mpv" "xdg-open")
+      (".*" "xdg-open")))
   ;; (define-key dired-mode-map (kbd "C-c d") 'dired-du-mode)
   (define-key dired-mode-map (kbd "C-c r") 'dired-du-recompute-dir-size)
   (dired-du--toggle-human-readable))
