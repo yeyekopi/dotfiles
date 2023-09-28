@@ -298,7 +298,7 @@ exec_always --no-startup-id fix_xcursor
 
 exec --no-startup-id /opt/sharexclone/sharexyz.sh
 # exec --no-startup-id ~/opt/manictime/manictime
-# exec --no-startup-id /opt/jetbrains-toolbox-1.27.3.14493/jetbrains-toolbox
+exec --no-startup-id /opt/jetbrains-toolbox-1.27.3.14493/jetbrains-toolbox
 
 # no_focus all
 

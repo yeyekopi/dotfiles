@@ -63,6 +63,7 @@ c.tabs.show_switching_delay = 2000
 c.tabs.new_position.unrelated = "next"
 # c.tabs.max_width = 0
 
+c.url.start_pages = "https://google.com/"
 c.url.default_page = "https://google.com/"
 
 
