@@ -112,6 +112,7 @@
   (setq org-archive-save-context-info nil)
   (setq org-startup-truncated nil)
   (setq org-auto-align-tags nil)
+  (setq org-tags-column 0)
   (defun stage-commit-push ()
     (interactive)
     (shell-command "git add -A && git commit --allow-empty-message -m '' && git push"))
